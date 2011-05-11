@@ -108,6 +108,10 @@ module PivotalTracker
       end
     end
 
+    def move_after(target_story)
+      Client.connection["/projects/#{project_id}/stories/#{id}/moves?move\[move\]=after&move\[target\]=#{target_story.id}"].post("")
+    end
+
     protected
 
       def to_xml
